@@ -1,6 +1,13 @@
 /*******************/
 /*GLOBAL VARIABLES*/
 /*******************/
+:root {
+  --header-color: #13c06a;
+  --text-color: #09a054;
+  --card-color: #333940;
+  --code-color: #09c7b7 #058d82;
+  --border-color: #078647;
+}
 
 /*******************/
 /*GLOBAL STYLES*/
@@ -9,37 +16,73 @@ body {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #333940;
+}
+
+header {
+  text-align: center;
+}
+
+h2, h3 {
+  font-family: Raleway, Helvetica, sans-serif;
+  color: var(--header-color);
+}
+
+h2 {
+  position: relative;
+  margin-top: -20px;
+  background-color: var(--card-color);
+  border: 1px dashed var(--border-color);
+  text-align: center;
+  padding: 5px 0;
+  margin-bottom: 10px;
 }
 
 p {
+  color: var(--text-color);
   font-family: Montserrat, Arial, sans-serif;
+  margin: 5px;
 }
 
-/*******************/
-/*HEADER STYLES*/
-/*******************/
-h1, h2, h3 {
-  font-family: Raleway, Helvetica, sans-serif;
+code {
+  color: #fff;
 }
 
 /*******************/
 /*MAIN STYLES*/
 /*******************/
-
 main {
   display: flex;
   flex-flow: row wrap;
+  margin: 0 80px;
 }
 
+/*TODO: Text overflow issue*/
 .snippet-card {
-  border: 4px solid blue;
-  min-width: 600px;
+  border: 1px dashed var(--border-color);
+  width: 350px;
+  margin: 10px;
+  padding: 10px;
 }
 
 pre {
-  background-color: lightgreen;
+  background-image: linear-gradient(rgb(7, 134, 71) 0%, rgb(2, 80, 73) 100%);
+  border-radius: 15px;
+  padding: 5px;
 }
 
+.snippet-card h2 {
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+/*TODO: Select all text when card is focused/selected by cursor*/
+
+.snippet-card:hover,
+.snippet-card:hover h2 {
+  box-shadow: inset 0px 0px 8px var(--border-color);
+  color: #fff;
+}
 
 /*******************/
 /*FOOTER STYLES*/
@@ -52,9 +95,20 @@ h1 { color: red;}
 /*Tablet*/
 @media screen and (max-width: 990px) {
 h1 { color: green;}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 30px;
+  }
 }
 
 /*Mobile*/
 @media screen and (max-width: 768px) {
   h1 { color: blue;}
+  main {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 80px;
+  }
 }
